@@ -1,0 +1,926 @@
+/* =========================================
+   VARIABLES : ROYALE DEVELOPER THEME
+   ========================================= */
+:root {
+    --bg-dark: #030407; /* Noir profond */
+    --panel-dark: #0b0f19; /* Gris bleuté très sombre (style IDE) */
+    --gold-royal: #c5a059;
+    --gold-lightning: #ffea00; /* Jaune électrique pour l'effet foudre */
+    --text-light: #e0e6ed;
+    --text-muted: #8b949e;
+    
+    /* Typographies */
+    --font-royal: 'Cinzel', serif;
+    --font-dev: 'Fira Code', monospace; /* Police de développeur */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* =========================================
+   EFFETS "LIGHTNING" (FOUDRE / NÉON)
+   ========================================= */
+@keyframes lightning-text {
+    0%, 100% { text-shadow: 0 0 5px rgba(197, 160, 89, 0.5); color: var(--gold-royal); }
+    50% { text-shadow: 0 0 20px var(--gold-lightning), 0 0 40px var(--gold-lightning); color: #fff; }
+    52% { text-shadow: 0 0 5px rgba(197, 160, 89, 0.5); color: var(--gold-royal); }
+    54% { text-shadow: 0 0 30px var(--gold-lightning), 0 0 50px #fff; color: #fff; }
+    56% { text-shadow: 0 0 5px rgba(197, 160, 89, 0.5); color: var(--gold-royal); }
+}
+
+.lightning-text {
+    animation: lightning-text 5s infinite;
+}
+
+@keyframes lightning-border {
+    0%, 100% { box-shadow: 0 0 5px rgba(197, 160, 89, 0.3); border-color: rgba(197, 160, 89, 0.5); }
+    50% { box-shadow: 0 0 15px var(--gold-lightning), inset 0 0 10px var(--gold-lightning); border-color: var(--gold-lightning); }
+    52% { box-shadow: 0 0 5px rgba(197, 160, 89, 0.3); border-color: rgba(197, 160, 89, 0.5); }
+    54% { box-shadow: 0 0 25px var(--gold-lightning); border-color: #fff; }
+    56% { box-shadow: 0 0 5px rgba(197, 160, 89, 0.3); border-color: rgba(197, 160, 89, 0.5); }
+}
+
+.border-lightning {
+    border: 1px solid var(--gold-royal);
+    animation: lightning-border 5s infinite;
+}
+
+/* =========================================
+   TYPOGRAPHIE DÉVELOPPEUR
+   ========================================= */
+.system-code {
+    font-family: var(--font-dev);
+    color: var(--text-muted);
+    font-size: 12px;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+/* =========================================
+   NAVIGATION ROYALE
+   ========================================= */
+.royal-navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: rgba(3, 4, 7, 0.9);
+    border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-family: var(--font-dev);
+    font-size: 13px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--gold-royal);
+}
+
+.logo-img {
+    height: 110px;
+}
+
+/* =========================================
+   HERO SECTION (ARRIÈRE-PLAN VIDÉO)
+   ========================================= */
+.hero-royal {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    overflow: hidden;
+}
+
+.bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: -2;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(90deg, rgba(3,4,7,0.95) 0%, rgba(3,4,7,0.7) 50%, rgba(3,4,7,0.3) 100%);
+    z-index: -1;
+}
+
+.hero-content {
+    z-index: 1;
+    max-width: 800px;
+}
+
+.main-title {
+    font-family: var(--font-royal);
+    font-size: 70px;
+    line-height: 1.1;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+}
+
+.tagline {
+    font-size: 16px;
+    color: var(--text-light);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    border-left: 2px solid var(--gold-royal);
+    padding-left: 15px;
+}
+
+/* =========================================
+   BOUTONS ROYAUX
+   ========================================= */
+.btn-royal {
+    display: inline-block;
+    padding: 15px 30px;
+    background: transparent;
+    color: var(--gold-royal);
+    border: 1px solid var(--gold-royal);
+    font-family: var(--font-dev);
+    font-size: 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.btn-royal:hover {
+    background: var(--gold-royal);
+    color: var(--bg-dark);
+    box-shadow: 0 0 15px rgba(197, 160, 89, 0.5);
+}
+
+.btn-sponsoring {
+    border: 1px solid var(--gold-royal);
+    padding: 8px 15px;
+    color: var(--gold-royal) !important;
+}
+
+.btn-sponsoring:hover {
+    background: var(--gold-royal);
+    color: var(--bg-dark) !important;
+}
+
+/* =========================================
+   SECTIONS ET GRILLES
+   ========================================= */
+.section-royal {
+    padding: 100px 10%;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.dark-panel {
+    background-color: var(--panel-dark);
+}
+
+.section-header {
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-family: var(--font-royal);
+    font-size: 35px;
+    color: var(--gold-royal);
+    letter-spacing: 3px;
+}
+
+.grid-2-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.align-center {
+    align-items: center;
+}
+
+/* =========================================
+   CARTES ET ESPACES MÉDIAS
+   ========================================= */
+.card-royal {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.media-space {
+    width: 100%;
+    height: 250px;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+}
+
+.large-media {
+    height: auto; /* Le cadre s'adapte à la taille de la photo */
+}
+
+.large-media img {
+    height: auto; /* Annule la contrainte de hauteur */
+    display: block; /* Enlève les marges invisibles */
+}
+
+.media-space img, .media-space video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+    transition: opacity 0.3s, transform 0.5s;
+}
+
+.media-space:hover img, .media-space:hover video {
+    opacity: 1;
+    transform: scale(1.02);
+}
+
+.card-content {
+    padding: 30px;
+}
+
+.card-content h3 {
+    font-family: var(--font-royal);
+    font-size: 22px;
+    color: var(--gold-royal);
+    margin-bottom: 15px;
+}
+
+/* =========================================
+   JOURNÉE GÉNIE CIVIL (JGC)
+   ========================================= */
+.jgc-showcase {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+
+.highlight-box h3 {
+    font-family: var(--font-royal);
+    font-size: 28px;
+    margin: 20px 0 10px 0;
+    color: var(--gold-royal);
+}
+
+.jgc-archives {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.archive-box {
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-left: 2px solid var(--gold-royal);
+}
+
+.archive-year {
+    font-family: var(--font-dev);
+    font-size: 14px;
+    color: var(--text-light);
+    display: block;
+    margin-bottom: 15px;
+}
+
+.link-royal {
+    color: var(--gold-royal);
+    text-decoration: none;
+    font-family: var(--font-dev);
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+/* =========================================
+   FOOTER (SPONSORING & CONTACT)
+   ========================================= */
+.footer-royal {
+    background-color: #010204;
+    padding: 80px 10% 40px;
+    border-top: 2px solid var(--gold-royal);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+}
+
+.sponsoring-box h3, .contact-info h3 {
+    font-family: var(--font-royal);
+    font-size: 24px;
+    color: var(--gold-royal);
+    margin-bottom: 20px;
+}
+
+.sponsoring-box p {
+    margin-bottom: 30px;
+}
+
+.contact-info ul {
+    list-style: none;
+    font-family: var(--font-dev);
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.contact-info ul li {
+    margin-bottom: 10px;
+}
+
+.social-links {
+    margin-top: 20px;
+}
+
+.social-links a {
+    color: var(--gold-royal);
+    margin-right: 20px;
+    font-family: var(--font-dev);
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.copyright {
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+    font-family: var(--font-dev);
+    font-size: 10px;
+    color: rgba(255,255,255,0.2);
+}
+
+/* =========================================
+   EN-TÊTES DES PAGES INTERNES & PORTRAITS
+   ========================================= */
+.page-header-royal {
+    padding: 180px 10% 80px;
+    background: radial-gradient(circle at top, rgba(197, 160, 89, 0.05) 0%, var(--bg-dark) 70%);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.caption-royal {
+    text-align: right;
+    padding-top: 15px;
+    border-top: 1px solid rgba(197, 160, 89, 0.2);
+    margin-top: 15px;
+}
+
+/* =========================================
+   PORTRAITS (Taille unifiée et centrée)
+   ========================================= */
+/* =========================================
+   PORTRAITS (Format Profil Professionnel)
+   ========================================= */
+.portrait-media {
+    width: 100%;
+    aspect-ratio: 3 / 4; /* Force un format vertical parfait pour un profil */
+    height: auto; /* Annule l'ancienne hauteur fixe */
+}
+
+.portrait-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Remplit le cadre sans écraser l'image */
+    object-position: center 20%; /* Centre l'image en gardant le focus sur le haut (visage) */
+}
+
+.gold-text {
+    color: var(--gold-royal) !important;
+}
+
+/* =========================================
+   BASE DE DONNÉES (RESSOURCES)
+   ========================================= */
+.database-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-top: 40px;
+}
+
+.db-folder h3 {
+    border-bottom: 1px solid var(--gold-royal);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.db-file-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--panel-dark);
+    padding: 20px 30px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-left: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.db-file-row:hover {
+    background: rgba(197, 160, 89, 0.05);
+    border-left: 3px solid var(--gold-royal);
+    border-color: rgba(197, 160, 89, 0.2);
+}
+
+.db-file-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.db-file-info h4 {
+    font-family: var(--font-royal);
+    font-size: 16px;
+    color: var(--text-light);
+}
+
+.btn-download {
+    padding: 10px 20px;
+    font-size: 10px;
+}
+
+.footer-logo {
+    height: 90px; /* Change la taille ici aussi */
+}
+
+/* =========================================
+   GRILLE D'ÉQUIPE DYNAMIQUE (ROSTER) - TAILLE FIXE
+   ========================================= */
+.roster-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centre les profils au milieu de la page */
+    gap: 40px;
+    margin-top: 30px;
+}
+
+/* Blocage de la taille des cartes pour éviter l'effet géant */
+.roster-grid .card-royal {
+    width: 320px; /* Largeur stricte pour un profil élégant */
+    flex-grow: 0; 
+}
+
+/* =========================================
+   GRILLE DE LA GALERIE PHOTOS
+   ========================================= */
+.gallery-grid {
+    display: grid;
+    /* Crée une mosaïque fluide. Les images feront au minimum 300px de large */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    height: 250px; /* Toutes les photos auront la même hauteur */
+    border-radius: 4px; /* Petits bords arrondis élégants */
+}
+
+/* =========================================
+   CARROUSEL / DIAPORAMA DE LA GALERIE
+   ========================================= */
+.carousel-container {
+    position: relative;
+    max-width: 900px; /* Largeur majestueuse au centre */
+    margin: 0 auto;
+    overflow: hidden;
+    background: #000;
+}
+
+.carousel-slide {
+    display: none; /* Cache toutes les photos par défaut */
+    width: 100%;
+    animation: fadeEffect 0.6s ease; /* Effet de fondu lors du changement */
+}
+
+/* On affiche uniquement la photo active */
+.carousel-slide.active {
+    display: block; 
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 500px; /* Hauteur fixe pour que le slider ne saute pas */
+    object-fit: cover; 
+    display: block;
+}
+
+/* Boutons Précédent / Suivant */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: #D4AF37;
+    border: 1px solid #D4AF37;
+    cursor: pointer;
+    padding: 15px 20px;
+    font-size: 24px;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.carousel-btn:hover {
+    background: #D4AF37;
+    color: #000;
+    box-shadow: 0 0 15px #D4AF37;
+}
+
+.carousel-btn.prev {
+    left: 0;
+    border-left: none; /* Colle le bouton au bord gauche */
+}
+
+.carousel-btn.next {
+    right: 0;
+    border-right: none; /* Colle le bouton au bord droit */
+}
+
+/* L'animation de fondu */
+@keyframes fadeEffect {
+    from { opacity: 0.3; }
+    to { opacity: 1; }
+}
+
+/* =========================================
+   EFFET LINKEDIN ULTRA-VISIBLE (BADGE + HOVER)
+   ========================================= */
+.portrait-media a {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden !important;
+    position: relative !important; /* Indispensable pour placer le texte dessus */
+}
+
+.portrait-media a img {
+    transition: transform 0.4s ease, filter 0.4s ease !important;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 1. LE PETIT BADGE PERMANENT "in" EN BAS À DROITE */
+.portrait-media a::before {
+    content: "in";
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: #0077b5; /* Bleu officiel LinkedIn */
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    z-index: 2;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.8);
+    pointer-events: none; /* Ne bloque pas le clic */
+}
+
+/* 2. LE BOUTON QUI APPARAÎT AU CENTRE AU SURVOL */
+.portrait-media a::after {
+    content: "🔗 LINKEDIN";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #0077b5;
+    color: white;
+    font-family: 'Fira Code', monospace;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    opacity: 0; /* Caché par défaut */
+    transition: opacity 0.3s ease;
+    z-index: 3;
+    pointer-events: none;
+    box-shadow: 0 0 15px rgba(0, 119, 181, 0.8);
+}
+
+/* 3. L'EFFET QUAND ON PASSE LA SOURIS */
+.portrait-media a:hover img {
+    transform: scale(1.08) !important;
+    filter: brightness(0.4) !important; /* Assombrit la photo pour faire ressortir le texte */
+    cursor: pointer !important;
+}
+
+.portrait-media a:hover::after {
+    opacity: 1; /* Fait apparaître le gros bouton central */
+}
+
+/* =========================================
+   SECTION RECRUTEMENT (Vidéo en fond)
+   ========================================= */
+.section-recrutement {
+    position: relative;
+    overflow: hidden; /* Empêche la vidéo de dépasser de la section */
+    padding: 100px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Positionnement de la vidéo tout au fond */
+.recrutement-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recadre la vidéo pour remplir l'écran sans déformer */
+    z-index: 0;
+}
+
+/* Le voile noir (Overlay) au-dessus de la vidéo pour lire le texte */
+.section-recrutement::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.75); /* Voile noir à 75% */
+    z-index: 1;
+}
+
+/* Le texte et la boîte passent au-dessus du voile noir */
+.relative-z {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+/* Design de la boîte de recrutement transparente */
+.recrutement-box {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px 30px;
+    background: rgba(10, 10, 10, 0.6); /* Fond sombre transparent */
+    border-radius: 8px;
+    backdrop-filter: blur(8px); /* Effet verre flouté premium */
+}
+
+.recrutement-box h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.recrutement-box p {
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+.recrutement-box .btn-royal {
+    font-size: 1.2rem;
+    padding: 15px 40px;
+    display: inline-block;
+}
+/* =========================================
+   SECTIONS AVEC VIDÉO EN ARRIÈRE-PLAN
+   ========================================= */
+.section-video-bg {
+    position: relative;
+    overflow: hidden;
+    padding: 80px 20px; /* Espace interne de la section */
+}
+
+/* La vidéo de fond qui remplit tout l'espace */
+.bg-video-element {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recadre la vidéo sans la déformer */
+    z-index: 0;
+}
+
+/* Le voile noir (à 80% d'opacité) pour ne pas rendre le texte illisible */
+.overlay-black {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+}
+
+/* On force le contenu de la section à passer au-dessus de la vidéo */
+.relative-z {
+    position: relative;
+    z-index: 2;
+}
+
+.w-100 {
+    width: 100%;
+}
+/* =========================================
+   MOTEUR GÉNÉRAL DU CARROUSEL
+   ========================================= */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-slide {
+    display: none;
+    width: 100%;
+    animation: fadeEffect 0.6s ease;
+}
+
+.carousel-slide.active {
+    display: block;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: #D4AF37;
+    border: 1px solid #D4AF37;
+    cursor: pointer;
+    padding: 15px 20px;
+    font-size: 24px;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.carousel-btn:hover {
+    background: #D4AF37;
+    color: #000;
+}
+
+.carousel-btn.prev { left: 0; border-left: none; }
+.carousel-btn.next { right: 0; border-right: none; }
+
+@keyframes fadeEffect {
+    from { opacity: 0.3; }
+    to { opacity: 1; }
+}
+
+/* =========================================
+   1. DESIGN SPÉCIFIQUE : LA GALERIE (Rétablie comme avant)
+   ========================================= */
+.carousel-container:not(.card-carousel) {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #000;
+}
+
+.carousel-container:not(.card-carousel) .carousel-slide img {
+    width: 100%;
+    height: 500px !important; /* Garde la grande taille de la galerie */
+    object-fit: cover !important; /* Remplit bien le cadre */
+    display: block;
+}
+
+/* =========================================
+   2. DESIGN SPÉCIFIQUE : ACTIVITÉS (Série Conférences)
+   ========================================= */
+/* Règle intelligente : on modifie la boîte UNIQUEMENT si elle contient un mini-carrousel.
+   Cela protège totalement le Bureau et l'Accueil ! */
+.media-space:has(.card-carousel) {
+    aspect-ratio: 16 / 9 !important; /* Format cinéma large */
+    height: auto !important;
+    background: #050505 !important;
+    padding: 0 !important;
+}
+
+.card-carousel {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+}
+
+.card-carousel .carousel-slide {
+    height: 100% !important;
+}
+
+.card-carousel .carousel-slide img {
+    width: 100% !important;
+    height: 100% !important; 
+    object-fit: contain !important; /* L'image de conférence rentre EN ENTIER sans être coupée */
+    background-color: #050505 !important;
+}
+
+.card-carousel .carousel-btn {
+    padding: 8px 12px !important;
+    font-size: 16px !important;
+    background: rgba(0, 0, 0, 0.6) !important;
+}
+/* =========================================
+   MODE MOBILE (SMARTPHONES & PETITS ÉCRANS) - VERSION PRO
+   ========================================= */
+@media screen and (max-width: 768px) {
+    
+    /* 1. Ajustement des gros titres */
+    .main-title {
+        font-size: 2.2rem !important; 
+        line-height: 1.2 !important;
+        word-wrap: break-word;
+    }
+    
+    /* 2. Donner de l'air au contenu principal (éviter qu'il touche les bords) */
+    .hero-royal {
+        /* On augmente l'espace en haut (140px) et sur les côtés (25px) */
+        padding: 140px 25px 60px !important; 
+    }
+
+    /* 3. Optimisation du Menu pour les doigts (Tactile) */
+    .royal-navbar {
+        flex-direction: column !important;
+        padding: 15px 10px !important;
+        background: rgba(3, 4, 7, 0.98) !important; /* Rendu légèrement plus sombre pour bien lire */
+    }
+    
+    .nav-links {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        /* Plus d'espace entre les mots pour éviter de cliquer à côté */
+        gap: 12px 18px !important; 
+        margin-top: 15px !important;
+    }
+    
+    .nav-links li a {
+        font-size: 13px !important; /* Texte légèrement agrandi */
+        padding: 8px 10px !important; /* Zone de clic plus large pour les pouces */
+        letter-spacing: 1px !important;
+    }
+
+    /* Mettre le bouton Sponsoring en évidence sur sa propre ligne */
+    .nav-links li:last-child {
+        width: 100% !important;
+        text-align: center !important;
+        margin-top: 12px !important;
+        display: flex;
+        justify-content: center;
+    }
+    
+    /* 4. Espacements globaux et Grilles */
+    .page-header-royal {
+        padding: 120px 15px 50px !important; 
+    }
+    
+    .section-royal {
+        padding: 60px 20px !important; 
+    }
+
+    /* Empiler les cartes (Activités, Bureau, etc.) */
+    .grid-2-cols, 
+    .footer-grid, 
+    .roster-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important; 
+        gap: 30px !important;
+    }
+
+    .logo-img {
+        height: 60px !important;
+    }
+}
